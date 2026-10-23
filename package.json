@@ -1,0 +1,27 @@
+{
+  "name": "noite-infinita",
+  "version": "0.1.0",
+  "description": "NOITE INFINITA — Defesa Final: tower defense de terror com cartas, para navegador.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "balance": "vitest run --config scripts/vitest.balance.config.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@fontsource/cinzel": "5.2.6",
+    "@fontsource/oswald": "5.2.6",
+    "phaser": "3.90.0"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "vitest": "3.2.7"
+  },
+  "private": true,
+  "type": "module"
+}
