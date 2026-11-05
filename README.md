@@ -2,21 +2,6 @@
 
 Tower defense de terror com cartas em tempo real, para navegador. Defenda o último abrigo contra hordas de monstros usando um baralho de 8 cartas (mão de 4), energia que regenera e decisões constantes.
 
-## Como rodar
-
-```bash
-npm install
-npm run dev        # servidor de desenvolvimento (http://localhost:5173)
-npm run build      # typecheck + build de produção em dist/
-npm run preview    # serve o build de produção
-npm test           # testes automatizados (Vitest)
-npm run balance    # relatório de balanceamento: um bot joga todas as missões sem interface
-```
-
-Não precisa de servidor próprio, login ou serviços externos. Todos os recursos (arte, sons, fontes) são locais ou gerados no próprio navegador. O build em `dist/` pode ser hospedado em qualquer servidor estático.
-
-Ferramentas de depuração: abra com `?debug=1` (ex.: `http://localhost:5173/?debug=1`) para ver alcances, colisões, campo de fluxo, caminhos A*, alvos, estados de IA, energia e temporizadores das ondas. A tecla `` ` `` liga/desliga a sobreposição.
-
 ## Controles
 
 | Ação | Desktop | Toque |
@@ -63,11 +48,6 @@ scripts/      bots de balanceamento (npm run balance)
 - **Navegação**: campos de fluxo (Dijkstra) por tipo de inimigo (terrestre, rasteiro, flanqueador) recalculados só quando estruturas mudam, mais A* com cache para perseguições. Estruturas têm custo no campo: os monstros contornam quando compensa ou atacam o que bloqueia o caminho.
 - **Comportamentos** ficam em registros (`THINK`, `BEHAVIORS`, `BOSS_UPDATE`), dirigidos pelos dados, e não em condicionais gigantes.
 - Pausa, ×2 e câmera lenta escalam o tempo da simulação, então temporizadores, animações e lógica continuam consistentes.
-
-### Substituir a arte e o som
-
-- Sprites: cada ator vira uma textura `actor_<id>` com quadros `idle`, `walk1`, `walk2` e `attack` (`src/render/textures.ts`). Basta carregar um spritesheet com a mesma chave e os mesmos quadros.
-- Sons: `AudioSystem.samples[nome] = AudioBuffer` substitui o som sintetizado de mesmo nome (`pistol`, `slam`, `boss`…).
 
 ## Limites conhecidos
 
